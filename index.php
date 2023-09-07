@@ -14,7 +14,7 @@ var_dump($carts);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
+    <script src="uwu.js"></script>
     <style>
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button {
@@ -44,7 +44,7 @@ var_dump($carts);
                 <!-- Card Layout Start -->
                 <div class="grid grid-cols-4 gap-5 pt-5">
                     <?php foreach ($products as $product) : ?>
-                        <div class="p-3 w-44 border-2 border-slate-200 rounded-lg shadow-lg hover:border-slate-700">
+                        <div class="p-3 w-44 border-2 border-slate-200 rounded-lg bg-white shadow-lg hover:border-slate-700">
                             <img src="images/<?= $product["gambar"] ?>">
                             <h3 class="mt-3 truncate"><?= $product["nama"] ?></h3>
                             <h3 class="font-semibold">Rp<?= $product["harga"] ?></h3>
@@ -55,7 +55,7 @@ var_dump($carts);
                 <!-- Card Layout End -->
             </section>
 
-            <aside class="p-4 w-1/3 border-l-2">
+            <aside class="p-4 w-1/3 border-l-2 bg-white">
                 <h2 class="text-xl font-bold">Keranjang</h2>
                 <section class="flex flex-col gap-4 mt-4 py-5 border-y-2  max-h-96 overflow-y-auto">
                     <?php if (isset($carts)) {
@@ -70,9 +70,9 @@ var_dump($carts);
                                         <h3 class=""><?= $product["nama"] ?></h3>
                                         <h3 class="font-semibold">Rp<?= $product["harga"] ?></h3>
                                         <div class="flex justify-end mt-4">
-                                            <a class="border-2 px-2 bg-white font-bold" onclick="decrement()">-</a>
-                                            <input class="border-y-2 w-10 text-center" type="number" id="qty" value="<?= $value ?>">
-                                            <a class="border-2 px-2 bg-white font-bold" onclick="increment()">+</a>
+                                            <a class="border-2 px-2 bg-white font-bold" onclick="decrement(<?= $key ?>)">-</a>
+                                            <input class="border-y-2 w-10 text-center" type="number" id="<?= $key ?>" value="<?= $value ?>">
+                                            <a class="border-2 px-2 bg-white font-bold" onclick="increment(<?= $key ?>)">+</a>
                                         </div>
                                     </div>
                                 </div>
